@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="tic-tac-toe.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lato:wght@400;700;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <p class="title">Tic-Tac-Toe</p>
+    <div class="frame"></div>
+    <div class="grid">
+      <button class="button1" onclick="
+      if (!document.querySelector('.button1').classList.contains('pushed'))
+      playGame(1);
+      "></button>
+      <button class="button2" onclick="
+      if (!document.querySelector('.button2').classList.contains('pushed'))
+      playGame(2);
+      "></button>
+      <button class="button3" onclick="
+      if (!document.querySelector('.button3').classList.contains('pushed'))
+      playGame(3);
+      "></button>
+      <button class="button4" onclick="
+      if (!document.querySelector('.button4').classList.contains('pushed'))
+      playGame(4);
+      "></button>
+      <button class="button5" onclick="
+      if (!document.querySelector('.button5').classList.contains('pushed'))
+      playGame(5);
+      "></button>
+      <button class="button6" onclick="
+      if (!document.querySelector('.button6').classList.contains('pushed'))
+      playGame(6);
+      "></button>
+      <button class="button7" onclick="
+      if (!document.querySelector('.button7').classList.contains('pushed'))
+      playGame(7);
+      "></button>
+      <button class="button8" onclick="
+      if (!document.querySelector('.button8').classList.contains('pushed'))
+      playGame(8);
+      "></button>
+      <button class="button9" onclick="
+      if (!document.querySelector('.button9').classList.contains('pushed'))
+      playGame(9);
+      "></button>
+    </div>
+    <button class="restart" onclick="
+    for(let i=1; i<=9; i++) {
+      document.querySelector('.button' + i).innerHTML = '';
+    }
+    for (let i = 0; i<3; i++) {
+      for (let j = 0; j<3; j++) {
+        board[i][j] = null;
+      };
+    };
+    index = 0;
+    document.querySelector('.game-over').innerHTML = '';
+    ">Restart</button>
+    <div class="game-over"></div>
+    <script>
+      let index = 0;
+      let board = [[], [], []];
+
+      function playGame(buttonNumber) {
+        const box = document.querySelector(`.button${buttonNumber}`);
+        index++;
+        box.classList.add('pushed');
+
+        switch (index) {
+          case 1: {
+            box.innerHTML = `<img class="cross-circle" src="cross.png">`;
+            pasteIntoArray(buttonNumber, index);
+            break;
+          }
+          case 2: {
+            box.innerHTML = '<img class="cross-circle" src="circle.png">';
+            pasteIntoArray(buttonNumber, index);
+            break;
+          }
+          case 3: {
+            box.innerHTML = `<img class="cross-circle" src="cross.png">`;
+            pasteIntoArray(buttonNumber, index);
+            break;
+          }
+          case 4: {
+            box.innerHTML = '<img class="cross-circle" src="circle.png">';
+            pasteIntoArray(buttonNumber, index);
+            break;
+          }
+          case 5: {
+            box.innerHTML = `<img class="cross-circle" src="cross.png">`;
+            pasteIntoArray(buttonNumber, index);
+            result();
+            break;
+          }
+          case 6: {
+            box.innerHTML = '<img class="cross-circle" src="circle.png">';
+            pasteIntoArray(buttonNumber, index);
+            result();
+            break;
+          }
+          case 7: {
+            box.innerHTML = '<img class="cross-circle" src="cross.png">';
+            pasteIntoArray(buttonNumber, index);
+            result();
+            break;
+          }
+          case 8: {
+            box.innerHTML = `<img class="cross-circle" src="circle.png">`;
+            pasteIntoArray(buttonNumber, index);
+            result();
+            break;
+          }
+          case 9: {
+            box.innerHTML = '<img class="cross-circle" src="cross.png">';
+            pasteIntoArray(buttonNumber, index);
+            result();
+            break;
+          }
+        };
+      };
+
+      function result() {
+        if ((board[0][0] === 1 && board[0][1] === 1 && board[0][2] === 1) || (board[1][0] === 1 && board[1][1] === 1 && board[1][2] === 1) || (board[2][0] === 1 && board[2][1] === 1 && board[2][2] === 1) || (board[0][0] === 1 && board[1][0] === 1 && board[2][0] === 1) || (board[0][1] === 1 && board[1][1] === 1 && board[2][1] === 1) || (board[0][2] === 1 && board[1][2] === 1 && board[2][2] === 1) || (board[0][0] === 1 && board[1][1] === 1 && board[2][2] === 1) || (board[0][2] === 1 && board[1][1] === 1 && board[2][0] === 1)) {
+          document.querySelector('.game-over').innerHTML = `<p class="win-text">Crosses win!</p>`;
+        }
+        else if ((board[0][0] === 0 && board[0][1] === 0 && board[0][2] === 0) || (board[1][0] === 0 && board[1][1] === 0 && board[1][2] === 0) || (board[2][0] === 0 && board[2][1] === 0 && board[2][2] === 0) || (board[0][0] === 0 && board[1][0] === 0 && board[2][0] === 0) || (board[0][1] === 0 && board[1][1] === 0 && board[2][1] === 0) || (board[0][2] === 0 && board[1][2] === 0 && board[2][2] === 0) || (board[0][0] === 0 && board[1][1] === 0 && board[2][2] === 0) || (board[0][2] === 0 && board[1][1] === 0 && board[2][0] === 0)) {
+          document.querySelector('.game-over').innerHTML = `<p class="win-text">Circles win!</p>`;
+        };
+      };
+
+      function pasteIntoArray(buttonNumber, index) {
+        if (index%2 === 0) {
+          if (buttonNumber < 4) {
+            board[0][buttonNumber-1] = 0;
+          } 
+          else if (buttonNumber < 7) {
+            board[1][buttonNumber-4] = 0;
+          }
+          else {
+            board[2][buttonNumber-7] = 0;
+          };
+        } 
+        else {
+          if (buttonNumber < 4) {
+            board[0][buttonNumber-1] = 1;
+          } 
+          else if (buttonNumber < 7) {
+            board[1][buttonNumber-4] = 1;
+          }
+          else {
+            board[2][buttonNumber-7] = 1;
+          };
+        };
+      };
+
+    </script>
+  </body>
+</html>

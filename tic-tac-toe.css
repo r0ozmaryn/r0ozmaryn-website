@@ -1,0 +1,71 @@
+body {
+  background-color: rgb(216, 231, 255);
+  font-family: Fredoka, Arial;
+  height: 730px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  row-gap: 10px;
+  column-gap: 10px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(155, 176, 206);
+}
+
+button {
+  height: 120px;
+  background-color: rgb(210, 227, 255);
+  border: none;
+  cursor: pointer;
+}
+
+.cross-circle {
+  height: 100px;
+}
+
+.frame {
+  background-color: rgb(155, 176, 206);
+  height: 410px;
+  width: 410px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  font-size: 100px;
+  color: rgb(46, 57, 72);
+  vertical-align: top;
+  position: absolute;
+  left:33%;
+  margin: auto;
+  font-weight: 900;
+}
+.restart {
+  background-color: rgb(46, 57, 72);
+  color: rgb(216, 231, 255);
+  font-family: Fredoka, Arial;
+  font-size: 40px;
+  font-weight: 700;
+  border: none;
+  padding: 0 30px 0 30px;
+  height: 80px;
+  position: absolute; 
+  left:43%;
+  border-radius: 30px;
+  bottom: 0;
+}
+
+.win-text {
+  font-size: 50px;
+  color: rgb(46, 57, 72);
+  font-weight: 700;
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+}
